@@ -36,12 +36,6 @@ def audio_transcription(filepath: str):
         if response.status_code == 200:
             response_data = response.json()
             prediction = response_data.get('prediction', '')
-
-            # Save to file
-            with open('transcription.txt', 'w', encoding='utf-8') as f:
-                f.write(prediction)
-
-            print("Transcription saved to 'transcription.txt'")
             return prediction
         else:
             print('Request failed with status:', response.status_code)
